@@ -2,26 +2,26 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import Button from "./Button";
+import Button from ".";
 import { ButtonProps } from "./Button.types";
 
-describe("Test Component", () => {
+describe("Button Component", () => {
   let props: ButtonProps;
 
   beforeEach(() => {
     props = {
-      foo: "bar"
+      foo: "bar",
     };
   });
 
   const renderComponent = () => render(<Button {...props} />);
 
   it("should render foo text correctly", () => {
-    props.foo = "harvey was here";
+    props.foo = "component render";
     const { getByTestId } = renderComponent();
 
     const component = getByTestId("Button");
 
-    expect(component).toHaveTextContent("harvey was here");
+    expect(component).toHaveTextContent("component render");
   });
 });
